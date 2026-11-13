@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28327.4469
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanPro", "CleanPro\CleanPro.csproj", "{7C3F2A15-4B4E-4E9A-9E1F-2A5B0C7E1D10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C3F2A15-4B4E-4E9A-9E1F-2A5B0C7E1D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C3F2A15-4B4E-4E9A-9E1F-2A5B0C7E1D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C3F2A15-4B4E-4E9A-9E1F-2A5B0C7E1D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C3F2A15-4B4E-4E9A-9E1F-2A5B0C7E1D10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DC02872-3CAC-43CB-907A-CE6A9907C401}
+	EndGlobalSection
+EndGlobal

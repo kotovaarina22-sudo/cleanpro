@@ -1,0 +1,105 @@
+<Page x:Class="CleanPro.Pages.CatalogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Каталог услуг — CleanPro">
+    <!-- Каталог: строка фильтров сверху, список услуг посередине, кнопки внизу -->
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- фильтры и поиск -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBox x:Name="txtSearch" Width="230" Margin="0,0,8,0"
+                     TextChanged="Filters_Changed"
+                     ToolTip="Поиск по названию услуги"/>
+            <ComboBox x:Name="cmbCategory" Width="230" Margin="0,0,8,0"
+                      SelectionChanged="Filters_Changed" ToolTip="Категория"/>
+            <ComboBox x:Name="cmbSort" Width="170" Margin="0,0,8,0"
+                      SelectionChanged="Filters_Changed" ToolTip="Сортировка"/>
+            <CheckBox x:Name="chkAvailable" Content="Только доступные"
+                      Checked="Filters_Changed" Unchecked="Filters_Changed"/>
+        </StackPanel>
+
+        <ListBox x:Name="listServices" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource CatalogCard}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="180"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Width="100" Height="100"
+                                   Stretch="Uniform"
+                                   Source="{Binding ImagePath, Converter={StaticResource ImagePathConverter}}"/>
+
+                            <StackPanel Grid.Column="1" Margin="12,0" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding ServiceName}" FontWeight="Bold"
+                                           FontSize="15" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding CategoryName}" Margin="0,4,0,0"
+                                           Foreground="{StaticResource MutedColor}"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                    <TextBlock Text="{Binding BasePrice, StringFormat=Цена: {0:N2} ₽}"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding UnitName}" Margin="6,0,0,0"
+                                               Foreground="{StaticResource MutedColor}"
+                                               VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- цена со скидкой: красная плашка и зачёркнутая старая цена -->
+                            <StackPanel Grid.Column="2" VerticalAlignment="Center"
+                                        HorizontalAlignment="Right">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Text="{Binding FinalPrice, StringFormat={}{0:N2} ₽}"
+                                               FontSize="18" FontWeight="Bold"
+                                               VerticalAlignment="Center"/>
+                                    <Border Background="{StaticResource WarningColor}"
+                                            CornerRadius="3" Padding="5,1" Margin="6,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Visibility="{Binding HasDiscount, Converter={StaticResource BoolToVis}}">
+                                        <TextBlock Foreground="White" FontWeight="Bold"
+                                                   Text="{Binding DiscountPercent, StringFormat=-{0}%}"/>
+                                    </Border>
+                                </StackPanel>
+                                <TextBlock Text="{Binding OldPrice, StringFormat={}{0:N2} ₽}"
+                                           Foreground="{StaticResource WarningColor}"
+                                           TextDecorations="Strikethrough"
+                                           HorizontalAlignment="Right"
+                                           Visibility="{Binding HasDiscount, Converter={StaticResource BoolToVis}}"/>
+                                <!-- пометка недоступной услуги: видно сразу на карточке -->
+                                <TextBlock Text="НЕДОСТУПНА" FontWeight="Bold" FontSize="12"
+                                           Foreground="{StaticResource WarningColor}"
+                                           HorizontalAlignment="Right" Margin="0,2,0,0"
+                                           Visibility="{Binding IsUnavailable, Converter={StaticResource BoolToVis}}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- снизу: слева информация, по центру основные кнопки -->
+        <Grid Grid.Row="2" Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="txtInfo" Grid.Column="0" VerticalAlignment="Center"
+                       Foreground="{StaticResource MutedColor}"/>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnAdd" Content="В корзину" Click="Add_Click"/>
+                <Button Content="Корзина" Click="Cart_Click"/>
+                <Button Content="Мои заказы" Click="Orders_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

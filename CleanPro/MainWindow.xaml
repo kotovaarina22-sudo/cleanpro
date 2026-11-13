@@ -1,0 +1,46 @@
+<Window x:Class="CleanPro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CleanPro — клининговые услуги"
+        Height="760" Width="1240"
+        MinHeight="560" MinWidth="900"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Images/CleanPro.ico">
+    <!-- Главное окно: шапка с логотипом, пользователем и кнопками + Frame для страниц -->
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="{StaticResource AccentBackground}" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="/Images/logo.png" Height="44" Stretch="Uniform"/>
+                    <TextBlock Text="CleanPro" FontSize="22" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="12,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal"
+                            HorizontalAlignment="Right" VerticalAlignment="Center"
+                            Margin="16,0">
+                    <TextBlock x:Name="txtFio" FontSize="14" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="txtRole" FontSize="14" Foreground="{StaticResource MutedColor}"
+                               VerticalAlignment="Center" Margin="8,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button x:Name="btnProfile" Content="Профиль" Click="Profile_Click"
+                            Style="{StaticResource BtnSecondary}"/>
+                    <Button x:Name="btnManage" Content="Управление" Click="Manage_Click"/>
+                    <Button x:Name="btnExit" Content="Выход" Click="Exit_Click"
+                            Style="{StaticResource BtnSecondary}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+    </DockPanel>
+</Window>

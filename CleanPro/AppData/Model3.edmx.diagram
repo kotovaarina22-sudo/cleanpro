@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f4bcd5d87ff5454e8ee69e9d151661fc" Name="Diagram1">
+        <EntityTypeShape EntityType="CleanProModel.Category" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.Employee" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.EmployeeStatu" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.Order" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.OrderItem" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.OrderStatu" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.Payment" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.PaymentMethod" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.Review" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.Role" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.Service" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.ServiceUnit" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.User" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleanProModel.UserStatuse" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="CleanProModel.FK__Service__Categor__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Employee__Employ__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Order__EmployeeI__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Review__Employee__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Order__ManagerId__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Order__OrderStat__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Order__UserId__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__OrderItem__Order__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Payment__OrderId__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Review__OrderId__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__OrderItem__Servi__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Payment__Payment__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Review__UserId__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__User__RoleId__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__Service__UnitId__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="CleanProModel.FK__User__UserStatus__1CBC4616" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
